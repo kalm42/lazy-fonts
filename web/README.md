@@ -65,3 +65,15 @@ List out a subset of fonts available. Describe what Lazy Fonts is and why one sh
   ```
   - Download the files
   - Link to page showing your current collection (for sharing)
+
+# Font Specific Details
+
+Shows details on the chosen font.
+
+- Name
+- Glyph
+- Characters
+- Styles
+- Popular Combos
+- Designer
+- About
