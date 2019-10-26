@@ -1,0 +1,11 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "extends": ["eslint:recommended", "airbnb", "eslint-config-prettier"],
+  "rules": {
+    "react/no-typos": "off",
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/label-has-associated-control": "off"
+  }
+}
