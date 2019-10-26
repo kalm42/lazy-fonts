@@ -12,7 +12,8 @@
 
 # Home
 
-List out a subset of fonts available. Describe what Lazy Fonts is and why one should use it.
+List out a subset of fonts available. Describe what Lazy Fonts is and why one
+should use it.
 
 ## Functionality
 
@@ -61,10 +62,21 @@ List out a subset of fonts available. Describe what Lazy Fonts is and why one sh
     ```
   - How to use it in css
   ```css
-  font-family: "Jomolhari", serif;
+  font-family: 'Jomolhari', serif;
   ```
   - Download the files
   - Link to page showing your current collection (for sharing)
+
+### Font Data API Request Requirements
+
+Requests to the backend to get a list of the fonts available. We need the
+following information for each font.
+
+- Name of the font
+- number of styles the font has
+- who made the font
+- the css font-family name
+- the taxonemy of the font (serif, san-serif, display ...)
 
 # Font Specific Details
 
