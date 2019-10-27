@@ -4,8 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
 const ControlBar = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  display: flex;
   align-items: center;
   grid-gap: 20px;
 `
