@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { createContext, useContext } from 'react'
 
 const AuthContext = createContext()
@@ -5,35 +6,40 @@ const AuthContext = createContext()
 const useAuth = () => useContext(AuthContext)
 
 function AuthProvider(props) {
-  const signin = (username, password) => {
+  const getUser = () => {
+    // get user details
     return {}
   }
-
-  const signout = () => {
-    return true
-  }
-
-  const register = ({ email = '', password = '' }) => {
+  const user = getUser()
+  const signin = email => {
+    // post email to backend
     return { email }
   }
 
-  const requestPasswordReset = email => {
+  const getCookie = token => {
+    // validate token
+    // receives user data
+    return { token }
+  }
+
+  const signout = () => {
+    // clear state, clear cookie
     return true
   }
 
-  const passwordReset = (token, password, confirmPassword) => {
-    return {}
+  const register = (email = '', appName = '', captchaToken = {}) => {
+    // post email to backend
+    return { email, appName, captchaToken }
   }
 
   return (
     <AuthContext.Provider
       value={{
-        data,
+        user,
         signin,
+        getCookie,
         signout,
         register,
-        requestPasswordReset,
-        passwordReset,
       }}
       {...props}
     />
