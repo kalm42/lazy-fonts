@@ -1,78 +1,53 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThLarge, faList, faUndo } from '@fortawesome/free-solid-svg-icons'
+import PreviewTextSettingControl from '../components/PreviewTextSettingControl'
+import FontSearch from '../components/FontSearch'
+import SetPreviewText from '../components/SetPreviewText'
+import SetFontSize from '../components/SetFontSize'
 
 const ControlBar = styled.div`
   display: flex;
   align-items: center;
   grid-gap: 20px;
 `
-const SearchWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 25px 1fr;
-  align-items: center;
-`
-const SearchBar = styled.input`
-  width: 100%;
-  font-size: 0.8rem;
+const BlankButton = styled.button`
+  background: none;
+  border: none;
 `
 
 const Home = () => {
+  const [loremDisplay, setLoremDisplay] = useState('Sentence')
+  const [fontSize, setFontSize] = useState(16)
+  const [toggleGrid, setToggleGrid] = useState(true)
+
+  const reset = () => {
+    setLoremDisplay('Sentence')
+    setFontSize(16)
+    setToggleGrid(true)
+  }
+
   return (
     <div>
       <ControlBar>
-        <SearchWrapper>
-          <FontAwesomeIcon icon={faSearch} />
-          <SearchBar
-            type="text"
-            name="search"
-            id="search"
-            placeholder="Search fonts"
-          />
-        </SearchWrapper>
-        <select name="options" id="options">
-          <option value="sentence">Sentence</option>
-          <option value="alphabet">Alphabet</option>
-          <option value="Paragraph">Paragraph</option>
-          <option value="numerals">Numerals</option>
-          <option value="custom">Custom</option>
-        </select>
-        <input
-          type="text"
-          name="lorem"
-          id="lorem"
-          placeholder="Type something"
+        <FontSearch />
+        <PreviewTextSettingControl
+          setting={loremDisplay}
+          setPreviewText={setLoremDisplay}
         />
-        <div>
-          <select name="fontsize" id="fontsize">
-            <option value="8">8px</option>
-            <option value="12">12px</option>
-            <option value="14">14px</option>
-            <option value="20">20px</option>
-            <option value="24">24px</option>
-            <option value="32">32px</option>
-            <option value="40">40px</option>
-            <option value="64">64px</option>
-            <option value="96">96px</option>
-            <option value="120">120px</option>
-            <option value="184">184px</option>
-            <option value="280">184px</option>
-          </select>
-          <div>
-            <input
-              type="range"
-              name="fontsize"
-              id="fontsize-range"
-              min="8"
-              max="280"
-              step="1"
-            />
-          </div>
-        </div>
-        <button type="button">paint bucket</button>
-        <button type="button">grid</button>
-        <button type="button">reset</button>
+        <SetPreviewText />
+        <SetFontSize fontSize={fontSize} setFontSize={setFontSize} />
+        <BlankButton type="button" onClick={() => setToggleGrid(!toggleGrid)}>
+          {toggleGrid ? (
+            <FontAwesomeIcon icon={faThLarge} />
+          ) : (
+            <FontAwesomeIcon icon={faList} />
+          )}
+        </BlankButton>
+        <BlankButton type="button" onClick={reset}>
+          <FontAwesomeIcon icon={faUndo} />
+        </BlankButton>
       </ControlBar>
       <div>
         <select name="categories" id="categories">
