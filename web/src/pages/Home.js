@@ -1,18 +1,37 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components'
+
+const ControlBar = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  align-items: center;
+  grid-gap: 20px;
+`
+const SearchWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 25px 1fr;
+  align-items: center;
+`
+const SearchBar = styled.input`
+  width: 100%;
+  font-size: 0.8rem;
+`
 
 const Home = () => {
   return (
     <div>
-      <div>
-        <div>
-          <p>search icon</p>
-          <input
+      <ControlBar>
+        <SearchWrapper>
+          <FontAwesomeIcon icon={faSearch} />
+          <SearchBar
             type="text"
             name="search"
             id="search"
             placeholder="Search fonts"
           />
-        </div>
+        </SearchWrapper>
         <select name="options" id="options">
           <option value="sentence">Sentence</option>
           <option value="alphabet">Alphabet</option>
@@ -55,7 +74,7 @@ const Home = () => {
         <button type="button">paint bucket</button>
         <button type="button">grid</button>
         <button type="button">reset</button>
-      </div>
+      </ControlBar>
       <div>
         <select name="categories" id="categories">
           <option value="serif">Serif</option>

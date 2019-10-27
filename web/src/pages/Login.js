@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Login = () => {
+const Login = ({ token }) => {
+  if (token) {
+    // TODO: get cookie
+  }
   return (
     <div>
       <h1>Log In</h1>

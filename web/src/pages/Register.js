@@ -12,19 +12,12 @@ const Register = () => {
           id="email"
           placeholder="your.email@gmail.com"
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="appName">Application Name</label>
         <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="use-a-lot-of-words"
-        />
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          name="confirmPassword"
-          id="confirmPassword"
-          placeholder="enter-the-same-password"
+          type="text"
+          name="appName"
+          id="appName"
+          placeholder="Super Cool App"
         />
         <input type="submit" value="Register" />
       </form>
