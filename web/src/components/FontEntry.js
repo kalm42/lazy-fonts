@@ -8,6 +8,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 const Wrapper = styled.div`
   border-top: 1px solid black;
   padding: 15px;
+  flex: 1;
+  min-width: 150px;
+  flex-shrink: 0;
 `
 const Header = styled.div`
   display: flex;
