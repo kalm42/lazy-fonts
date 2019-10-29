@@ -31,7 +31,7 @@ const FontExample = styled.p`
   font-size: ${props => `${props.font.size}px`};
 `
 
-const FontEntry = ({ font }) => {
+const FontEntry = ({ font, text }) => {
   return (
     <Wrapper>
       <Helmet>
@@ -49,7 +49,7 @@ const FontEntry = ({ font }) => {
         </AddFontBtn>
       </Header>
       <FontExample font={font}>
-        Consequat nostrud amet duis ullamco enim Lorem.
+        {text.length ? text : 'Consequat nostrud amet duis ullamco enim Lorem.'}
       </FontExample>
     </Wrapper>
   )
@@ -66,6 +66,7 @@ FontEntry.propTypes = {
     source: PropTypes.string,
     css: PropTypes.string,
   }).isRequired,
+  text: PropTypes.string.isRequired,
 }
 
 export default FontEntry
