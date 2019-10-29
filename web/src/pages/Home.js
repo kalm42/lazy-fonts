@@ -12,15 +12,15 @@ const ControlBar = styled.div`
   display: flex;
   align-items: center;
   grid-gap: 20px;
+  padding: 15px 0;
 `
 const BlankButton = styled.button`
   background: none;
   border: none;
 `
 const FontCatalog = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-flow: row wrap;
 `
 
 const FakeFontData = [
@@ -111,6 +111,7 @@ const Home = () => {
   const [loremDisplay, setLoremDisplay] = useState('Sentence')
   const [fontSize, setFontSize] = useState(16)
   const [toggleGrid, setToggleGrid] = useState(true)
+  const [text, setText] = useState('')
 
   const reset = () => {
     setLoremDisplay('Sentence')
@@ -126,7 +127,7 @@ const Home = () => {
           setting={loremDisplay}
           setPreviewText={setLoremDisplay}
         />
-        <SetPreviewText />
+        <SetPreviewText text={text} setText={setText} />
         <SetFontSize fontSize={fontSize} setFontSize={setFontSize} />
         <BlankButton type="button" onClick={() => setToggleGrid(!toggleGrid)}>
           {toggleGrid ? (
@@ -161,7 +162,11 @@ const Home = () => {
       <h1>Font Catalog</h1>
       <FontCatalog>
         {FakeFontData.map(font => (
-          <FontEntry key={font.id} font={{ ...font, size: fontSize }} />
+          <FontEntry
+            key={font.id}
+            font={{ ...font, size: fontSize }}
+            text={text}
+          />
         ))}
       </FontCatalog>
     </div>

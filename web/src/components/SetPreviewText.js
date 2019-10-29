@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const PreviewText = styled.input`
@@ -9,7 +10,7 @@ const PreviewText = styled.input`
   padding: 5px;
 `
 
-const SetPreviewText = () => {
+const SetPreviewText = ({ text, setText }) => {
   return (
     <div>
       <PreviewText
@@ -17,9 +18,16 @@ const SetPreviewText = () => {
         name="lorem"
         id="lorem"
         placeholder="Type something"
+        value={text}
+        onChange={e => setText(e.currentTarget.value)}
       />
     </div>
   )
+}
+
+SetPreviewText.propTypes = {
+  text: PropTypes.string.isRequired,
+  setText: PropTypes.func.isRequired,
 }
 
 export default SetPreviewText
